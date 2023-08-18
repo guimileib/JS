@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geek Café Login</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #01142e;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        #logo {
+            max-width: 150px;
+            height: auto;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: white;
+        }
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        input[type="submit"] {
+            background-color: #01142e;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        #errorMessages {
+            color: red;
+            margin-top: 10px;
+        }
+        a{
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        a:hover{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img id="logo" src="./img/logo_cafe-removebg-preview.png" alt="Geek Café Logo">
+    </header>
+    <div class="container">
+        <h2>Login</h2>
+        <form id="loginForm" onsubmit="return validateForm()">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required>
+
+            <input type="submit" value="Entrar">
+        </form>
+        <div id="errorMessages"></div>
+        <div> 
+            <h3>Não tenho cadastro:</h3>
+            <a href="Cadastro.html">Clique Aqui!</a>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            // Coloque aqui a lógica de validação de login, se necessário.
+
+            // Exemplo básico: apenas verifica se os campos estão preenchidos.
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (!email || !password) {
+                const errorDiv = document.getElementById('errorMessages');
+                errorDiv.innerHTML = 'Por favor, preencha todos os campos.';
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>
