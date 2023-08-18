@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Geek</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #01142e;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+        h1 {
+            margin: 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .product {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .product-img {
+            width: 100px;
+            height: auto;
+            margin-right: 20px;
+        }
+        .product-details {
+            flex: 1;
+        }
+        .add-to-cart {
+            background-color: #01142e;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+        }
+        .cart {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .cart-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .cart-item img {
+            width: 40px;
+            height: auto;
+            margin-right: 10px;
+        }
+        .coffee-img{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50vh; 
+        max-width: 100%;
+        max-height: 100%;
+        }
+        a:hover{
+            color: #01142e;
+            
+        }
+
+        
+    </style>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const addToCartButtons = document.querySelectorAll(".add-to-cart");
+                const cartItemsContainer = document.querySelector(".cart-items");
+    
+                addToCartButtons.forEach(button => {
+                    button.addEventListener("click", function () {
+                        const product = this.closest(".product");
+                        const productName = product.querySelector(".product-details h3").textContent;
+                        const productImageSrc = product.querySelector(".product-img").getAttribute("src");
+                        const cartItem = document.createElement("div");
+                        cartItem.className = "cart-item";
+                        cartItem.innerHTML = `
+                            <img src="${productImageSrc}" alt="${productName}">
+                            <p>${productName}</p>
+                        `;
+                        cartItemsContainer.appendChild(cartItem);
+                    });
+                });
+            });
+        </script>
+</head>
+<body>
+    <header>
+        <h1>Café Geek</h1>
+        <p>Para amantes de café e tecnologia!</p>
+    </header>
+    <div class="container">
+        <h2>Bem-vindo ao Café Geek!</h2>
+            <p>Desfrute de uma xícara de café enquanto mergulha no mundo da tecnologia, jogos e tudo que é geek.</p>
+            <img class="coffee-img" src="./img/cafe-geek.png" alt="Café Geek">
+            <p>Nosso cardápio inclui:</p>
+        <div class="product">
+            <img class="product-img" src="./img/cafe-expresso.png" alt="Café Expresso">
+            <div class="product-details">
+                <h3>Café Expresso de Alta Tecnologia</h3>
+                <p>R$ 13,00</p>
+                <button class="add-to-cart">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="product">
+            <img class="product-img" src="./img/cappuccino.png" alt="Cappuccino">
+            <div class="product-details">
+                <h3>Cappuccino do Espaço Sideral</h3>
+                <p>R$ 17,00</p>
+                <button class="add-to-cart">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="product">
+            <img class="product-img" src="./img/latte.png" alt="Latte Gelado">
+            <div class="product-details">
+                <h3>Latte Inspirado em Super-Heróis</h3>
+                <p>R$ 20,00</p>
+                <button class="add-to-cart">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="product">
+            <img class="product-img" src="./img/bolos.png" alt="Bolos e Doces">
+            <div class="product-details">
+                <h3>Bolos para manter acordado!</h3>
+                <p>R$ 30,00</p>
+                <button class="add-to-cart">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+    </div>
+    <div class="cart">
+        <h3>Senha Atendimento:</h3>
+        <a href="carrinho.html"> Clique Aqui! </a>
+        <h4>Carrinho:</h4>
+        <div class="cart-items"></div>
+    </div>
+</body>
+</html>

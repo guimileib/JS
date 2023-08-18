@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras - Café Geek</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #01142e;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+        }
+        a:hover{
+            color: #01142e;
+        }
+    </style>
+    
+</head>
+<body>
+    <header>
+        <h1>Gerador de Senhas</h1>
+    </header>
+    <div class="container">
+        <h1><a href="cafegeek.html">Página Inicial</a></h1>
+        <p>Clique no botão abaixo para gerar uma senha aleatória:</p>
+        <button id="generate-password">Gerar Senha</button>
+        <p id="generated-password"></p>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2023 Café Geek. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.getElementById("generate-password").addEventListener("click", function () {
+            const length = 3; // Comprimento da senha
+            const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"; // Caracteres permitidos
+            let password = "";
+            for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * charset.length);
+                password += charset.charAt(randomIndex);
+            }
+            const generatedPasswordElement = document.getElementById("generated-password");
+            generatedPasswordElement.textContent = "Senha gerada: " + password;
+        });
+    </script>
+</body>
+</html>
